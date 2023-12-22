@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Syne:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="about">
+                <div class="empty"></div>
+                <article>
+                    <div class="title">
+                        <h1>Bedirxan Ugur</h1>
+                    </div>
+                    <div class="description">
+                        <p>
+                        I am a creative coding artist, unearthing the profound through the fusion of art and technology.  
+                        </p>
+                    </div>
+
+                </article>
+
+        </section>
+        <section id="services" class="service service-html sticky">
+            <article>
+                 <figure>
+                    <img src="assets/diamond.png" alt="diamond" width="200">
+                </figure>
+                <div class="text">
+                    <h2>HTML</h2>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                    <a href="#">More about HTML</a>
+                </div>
+            </article>       
+        </section>
+        <section class="service service-css sticky">
+            <article>
+                 <figure>
+                    <img src="assets/triangle.png" alt="diamond" width="200">
+                </figure>
+                <div class="text">
+                    <h2>CSS</h2>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                    <a href="#">More about CSS</a>
+                </div>
+            </article>       
+        </section>
+        <section class="service service-js sticky">
+            <article>
+                 <figure>
+                    <img src="assets/octagon.png" alt="diamond" width="200">
+                </figure>
+                <div class="text">
+                    <h2>JS</h2>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                    <a href="#">More about JS</a>
+                </div>
+            </article>       
+        </section>
+    <section id="contact" class="contact full-screen">
+            <a href="mailto:hello@email.com">
+                hello@email.com</a>
+    </section>
+    </main>
+
+    <script>
+         let emptyElement = document.querySelector('.about .empty');
+         let titleElement = document.querySelector('.about .title');
+         let figureElements = document.querySelectorAll('.service figure')
+
+            window.addEventListener('mousemove', handleMouseMove)
+
+            function handleMouseMove(event) {
+             
+            emptyElement.style.flexBasis = event.clientX +'px'
+            titleElement.style.flexBasis = event.clientY +'px'
+
+            figureElements.forEach(function(element){
+                element.style.flexBasis = (window.innerWidth - event.clientX) +'px';
+            })
+        }
+
+    </script>
+
+</body>
+</html>
