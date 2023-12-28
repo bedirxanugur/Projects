@@ -6,18 +6,17 @@ let colourful;
 let nLines;
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(windowWidth, windowHeight);
   background(0, 160, 176);
   blackColour = color(51, 51, 51);
   yellowColour = color(237, 201, 81);
-  colourful=color(random(255),random(255),random(255));
+  colourful = color(random(255), random(255), random(255));
   brush = blackColour;
   nLines = 1;
   thickness = 3;
- }
+}
 
 function draw() {
- 
   strokeWeight(1);
   //red button
   fill(blackColour);
@@ -49,23 +48,23 @@ function draw() {
   rect(width - 50, 100, 50, 50);
   fill("black");
   text("4", width - 10, 120);
-    //small button
+  //small button
   fill("white");
   stroke("black");
   strokeWeight(2);
-  rect(0, height-20, 20, 20);
+  rect(0, height - 20, 20, 20);
   //large button
   fill("white");
   stroke("black");
   strokeWeight(2);
-  rect(30, height-40, 40, 40);
-    //reset button
+  rect(30, height - 40, 40, 40);
+  //reset button
   fill("black");
   stroke("white");
   strokeWeight(2);
-  rect(width-50,height-50, 50, 50);
+  rect(width - 50, height - 50, 50, 50);
   fill("white");
-  text("X", width -25, height-20);
+  text("X", width - 25, height - 20);
 }
 
 function mouseDragged() {
@@ -82,8 +81,7 @@ function mouseDragged() {
     line(mouseX, height - mouseY, pmouseX, height - pmouseY);
     line(width - mouseX, mouseY, width - pmouseX, pmouseY);
     line(width - mouseX, height - mouseY, width - pmouseX, height - pmouseY);
-  } 
- 
+  }
 }
 
 function mousePressed() {
@@ -91,11 +89,6 @@ function mousePressed() {
     brush = blackColour;
   } else if (mouseX > 0 && mouseX < 50 && mouseY > 50 && mouseY < 100) {
     brush = yellowColour;
-  } else if (mouseX > 0 && mouseX < 50 && mouseY > 100 && mouseY < 150) {
-    colourful=color(random(255),random(255),random(255));
-    brush=colourful;
- 
-    
   } else if (
     mouseX > width - 50 &&
     mouseX < width &&
@@ -117,11 +110,38 @@ function mousePressed() {
     mouseY < 150
   ) {
     nLines = 4;
-  }else if (mouseX > 0 && mouseX < 20 && mouseY > height-20 && mouseY < height) {
+  } else if (
+    mouseX > 0 &&
+    mouseX < 20 &&
+    mouseY > height - 20 &&
+    mouseY < height
+  ) {
     thickness = 3;
-  } else if (mouseX > 30 && mouseX < 70 && mouseY > height-40 && mouseY < height) {
+  } else if (
+    mouseX > 30 &&
+    mouseX < 70 &&
+    mouseY > height - 40 &&
+    mouseY < height
+  ) {
     thickness = 6;
-  }else if (mouseX > width-50 && mouseX < width && mouseY > height-50 && mouseY < height) {
-    background(0, random(160),random(176));
+  }
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  background(0, 160, 176);
+}
+
+function mouseClicked() {
+  if (
+    mouseX > width - 50 &&
+    mouseX < width &&
+    mouseY > height - 50 &&
+    mouseY < height
+  ) {
+    background(0, random(160), random(176));
+  } else if (mouseX > 0 && mouseX < 50 && mouseY > 100 && mouseY < 150) {
+    colourful = color(random(255), random(255), random(255));
+    brush = colourful;
+  }
 }
